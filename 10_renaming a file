@@ -1,0 +1,25 @@
+here i used mv, tr
+file check
+--------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+for name in `ls`       #assigning list of directories and files to name
+do
+   if [ -d $name ]    # if condition starts for directories
+   then
+        temp=`echo "$name" | tr [:lower:] [:upper:]`  # transalating upper to lower 
+        if [ $name != $temp ]      # if condition checking previous directory is not equal to new/temp directory
+        then
+             mv $name $temp          # replaced directory
+        fi                 # inner ended if condition
+        elif [ -f $name ]      # if condition starts for files
+        then
+            temp=`echo "$name" | tr [:upper:] [:lower:]` # transalating lower to upper 
+            if [ $temp != $name ]    # if condition checking previous file is not equal to new/temp file
+            then
+                 mv $name $temp       # replaced file
+            fi                 # inner ended if condition
+        fi               #outer if condition
+        else
+            echo " dont do any  changes"
+done
+echo "Files are renamed in lowercase and directories are renamed in upper case"
