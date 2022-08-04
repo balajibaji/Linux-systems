@@ -1,1 +1,22 @@
 
+# chess board
+# to print black box --> echo -e -n "\e[40m"""
+# to print white box --> echo -e -n "\e[47m"""
+# to print normal box --> echo -e -n "\e[0m"""
+------------------------------------------------------------------------------------------------------
+#!/bin/bash                               #shabang
+for i in $(seq 1 8)                      #outer loop bigins and taking i as variable and it is for row 
+do 
+    for j in $(seq 1 8)              # inner loop begins and taking j as variable and it is for column
+    do
+	S=$(((i+j)%2))                  # logic for printing chess in the screen
+	if [ $S -eq 0 ]
+	then
+	    echo -e -n "\e[47m  """             # printing white color
+	else
+	    echo -e -n "\e[40m  """            #printing black color
+	fi
+    done                              # inner loop ends
+    echo -e -n "\e[0m """              # printing normal 
+    echo                                 # printing space
+done    
