@@ -1,4 +1,4 @@
-this is a pattern where numbers are printed  from top to down 
+this is a patterns problem
 here i used for loop to run the code iteratively so  i can get i want to imagine
 #!/bin/bash                     # it is standard header for bash in my terminal ,,, it depends on various systems 
 read -p "enter the number of rows : " n
@@ -14,6 +14,7 @@ done
 
 
 pattern2
+
 #!/bin/bash                     # it is standard header for bash in my terminal ,,, it depends on various systems 
 read -p "enter the number of rows : " n
 for row in `seq $n`
