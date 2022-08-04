@@ -1,0 +1,79 @@
+Currently logged users.
+Your shell directory.
+Home directory.
+OS name & version.
+Current working directory.
+Number of users logged in.
+Show all available shells in your system.
+Hard disk information.
+CPU information.
+Memory information.
+File system information.
+Currently running process.
+-------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+var=y
+while [ $var = y ]
+do
+    echo
+    echo 1.Currently logged users
+    echo 2.Your shell directory
+    echo 3.Home directory
+    echo 4.Os name and version
+    echo 5.Current working directory
+    echo 6.Number of users logged in
+    echo 7.Show all available shells in your system
+    echo 8.Hard disk information
+    echo 9.CPU Information
+    echo 10. Memory Information
+    echo 11. File system information
+    echo 12.currently running process
+    echo 13.exit
+    read -p "enter your choice:" x
+    case $x in
+	1 ) echo 1.Currently logged users
+	    whoami
+	    ;;
+	2 ) echo 2.Your shell directory
+	    echo $SHELL
+	    ;;
+	3 ) echo 3.Home directory
+	    echo $HOME
+	    ;;
+	4 ) echo 4.Os name and version
+	    uname -a 
+	    uname -v
+	    ;;
+	5 ) echo 5.Current working directory
+	    pwd 
+	    ;;
+	6 ) echo 6.Number of users logged in
+	    who -q
+	    ;;
+	7 ) echo 7.Show all available shells in yuor system
+	    cat /etc/shells
+	    ;;
+	8 ) echo 8.Hard disk information
+	    df / hwinfo
+	    ;;
+	9 ) echo 9.CPU information
+	    cat /proc/meminfo
+	    ;;
+	10 ) echo 10.Memory Information
+	     cat /proc/maminfo
+	    ;;
+	11 ) echo 11.File system information
+	     df -h
+	    ;;
+	12 ) echo 12.currently running process
+	     ps
+	     ;;
+	 13 ) exit
+	     ;;
+	 * ) echo Please select valid input
+     esac
+     echo
+     echo " Do you want to continue (y/n): "
+     read var
+ done
+ 
