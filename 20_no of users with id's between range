@@ -1,0 +1,23 @@
+#!/bin/bash
+if [ $# -eq 1 ]
+then
+     echo please pass 2 arguements through cla
+if [[ (( $# -eq 2 )) && (( $1 -gt $2 )) ]]
+then
+	  echo error,pls enter 
+fi
+elif [ $# -ne 0 ]
+then
+    a=$1
+    b=$2
+fi
+arr=(`cat /etc/passwd | cut -d ":" -f 3`)
+res=0
+for i in ${arr[@]}
+do
+    if [[ (( $i -gt $a )) && (( $i -lt $b )) ]]
+    then
+	    res=$((res+1))
+    fi
+done
+echo total count of users id between $a and $b is $res
