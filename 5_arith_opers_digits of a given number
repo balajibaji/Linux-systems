@@ -20,39 +20,39 @@ then
 	first=${num:0:1}          #offset
 	case $opr in              #case statement started
 		+)                               #addition
-         for i in `seq 1 $len1`            
-	       do
+                    for i in `seq 1 $len1`            
+	             do
 		        first=$(($first + ${num:i:1}))
-	       done
-	       echo "Sum of digits = $first"
-	       ;;
+	             done
+	            echo "Sum of digits = $first"
+	            ;;
 		-)                                #substraction
-	       for i in `seq 1 $len1`
-	       do
-	          first=$(($first - ${num:i:1}))
-	       done
-	       echo "Subtraction of digits = $first"
-		     ;;
-	  x)                                 #multiplication
-         for i in `seq 1 $len1`
-	       do
-		       first=$(($first*${num:i:1}))
-		     done
-		     echo "Multiplication of digits = $first"
-		     ;;
-    /)                                 #division
-		       for i in `seq 1 $len1`
-		       do
-		          first=`echo "scale=2; $first / ${num:i:1}" |bc`
-		       done
-		       echo "Division of digits = $first"
-		       ;
-    *)
-        echo "Error: Operator missing or invalid operator, please pass operator as last digit (+,-,x,/)"
-		    ;;
-        esac                   # ended the case statement
-else 
-	  echo "Error : Please pass the arguments through CL."
-    echo "Usage : ./operator_dependent.sh 2345+"
+	          for i in `seq 1 $len1`
+	          do
+	             first=$(($first - ${num:i:1}))
+	         done
+	         echo "Subtraction of digits = $first"
+		  ;;
+	      x)                                 #multiplication
+                for i in `seq 1 $len1`
+	        do
+		    first=$(($first*${num:i:1}))
+		 done
+		 echo "Multiplication of digits = $first"
+		  ;;
+              /)                                 #division
+		  for i in `seq 1 $len1`
+		  do
+		     first=`echo "scale=2; $first / ${num:i:1}" |bc`
+		  done
+		  echo "Division of digits = $first"
+		  ;;
+              *)
+                 echo "Error: Operator missing or invalid operator, please pass operator as last digit (+,-,x,/)"
+	         ;;
+                  esac                   # ended the case statement
+  else 
+       echo "Error : Please pass the arguments through CL."
+       echo "Usage : ./operator_dependent.sh 2345+"
 fi           # ended the if statement
 
