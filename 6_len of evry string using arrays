@@ -1,1 +1,15 @@
-
+we use arrays,len cmd,cli's
+string manipulations
+----------------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+arr=($@)
+if [ $# -gt 0 ]             # checking is there any lines are present 
+then
+    for var in ${arr[@]}      # assaigning all into var variable
+    do 
+      echo -n " Length of string ($var) - ${#var}"      # length of the string
+      echo
+    done                        # end of the for loop
+else
+    echo "Error: Please pass the arguments through command line"  #error printing if condition fails
+fi
