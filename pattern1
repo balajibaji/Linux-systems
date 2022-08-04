@@ -1,4 +1,5 @@
 this is a patterns problem
+pattern2
 here i used for loop to run the code iteratively so  i can get i want to imagine
 #!/bin/bash                     # it is standard header for bash in my terminal ,,, it depends on various systems 
 read -p "enter the number of rows : " n
@@ -13,7 +14,7 @@ done
 
 
 
-pattern2
+pattern1
 
 #!/bin/bash                     # it is standard header for bash in my terminal ,,, it depends on various systems 
 read -p "enter the number of rows : " n
