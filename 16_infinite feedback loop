@@ -1,0 +1,7 @@
+#!/bin/bash
+pwd                    # printing working directory
+read -p " read the file:" file.txt     # reading the file 
+echo before loop file content        # echo 
+cat file.txt                        # checking the content in the file
+echo after loop file content         # echo after 
+tail -f file.txt >> file.txt | tail -f file.txt     # logic using piping and redirection and following option for printing infinite loop
