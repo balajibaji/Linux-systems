@@ -1,1 +1,14 @@
+we use sed, regular exp here
+=============================================================================================================================
 
+file=$1
+if [ $# -eq 0]
+then
+    echo "error:. pls pass the file"
+else
+    if [ -f $file ]
+    then
+        echo " emty lines r deleted"
+        sed '/^[[:blank:]]*$/d' $file
+    fi
+fi
