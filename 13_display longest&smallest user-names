@@ -1,0 +1,28 @@
+cut and tr
+arrays
+string
+----------------------------------------------------------------------------------------------------------------
+etc configuration files
+----------------------------------------------------------------------------------------------------------4
+#!/bin/bash
+var=`cat /etc/passwd | cut -d : -f 1`          #assigning the function which do the cut operation to var
+arr=($var)                               # and assigned it as array 
+l=${#arr[@]}                          # length of the array
+len=$(($l - 1))          # length 
+m=${#arr[0]}             
+n=${#arr[0]}            
+for i in `seq 0 $len`                # for loop begins and sequencing of the list of len       
+do
+	 if [ ${#arr[$i]} -ge $m ]        # if condition started , if len of array if i is greater than m then
+	 then
+		   m=${#arr[$i]}            # do these 
+		   max=${arr[$i]}
+	fi                              # end of if 
+	if [ ${#arr[$i]} -lt $n ]        # is less than n then 
+	then
+		  n=${#arr[$i]}                      # do these 
+		  min=${arr[$i]}
+	fi                                    # end of if 
+done                                      # end of for loop 
+echo The Longest Name is  : $max            # printing maximum user name  
+echo The Shortest Name is : $min           # printing minimum user name  
