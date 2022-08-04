@@ -1,0 +1,15 @@
+#!/bin/bash
+
+IFS=':'                     # : is separation between path
+for directory in $PATH      # for loop started
+do       
+  for file in $directory/*          #inner loop started
+  do
+    if [ -x $file ]          #if condition started
+    then
+        echo "Executable File: " $file 
+    else
+        echo "Not executable: " $file 
+    fi                  # if condition ended
+  done             # inner loop ended
+done               # outer loop ended
