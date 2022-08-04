@@ -1,0 +1,58 @@
+here we use loops, case,strings
+--------------------------------------------------------------------------------------------------------------------------
+string using offset :- 
+
+
+sub_string:-
+A substring is a sequence of characters within a string.
+Bash provides an option to extract the information from a string itself. 
+You can extract the digits or a given string using several methods.
+
+syntax:- ${var:offset:length}
+---------------------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+if [ $# -eq 1 ]   # cla check, if condition started
+then
+	num=$1                    #assigning argument 1 to num 
+	len=$((${#num}-1))        #length
+	len1=$(($len-1))          
+	opr=${num:$len:1}         #offset operation
+	first=${num:0:1}          #offset
+	case $opr in              #case statement started
+		+)                               #addition
+         for i in `seq 1 $len1`            
+	       do
+		        first=$(($first + ${num:i:1}))
+	       done
+	       echo "Sum of digits = $first"
+	       ;;
+		-)                                #substraction
+	       for i in `seq 1 $len1`
+	       do
+	          first=$(($first - ${num:i:1}))
+	       done
+	       echo "Subtraction of digits = $first"
+		     ;;
+	  x)                                 #multiplication
+         for i in `seq 1 $len1`
+	       do
+		       first=$(($first*${num:i:1}))
+		     done
+		     echo "Multiplication of digits = $first"
+		     ;;
+    /)                                 #division
+		       for i in `seq 1 $len1`
+		       do
+		          first=`echo "scale=2; $first / ${num:i:1}" |bc`
+		       done
+		       echo "Division of digits = $first"
+		       ;
+    *)
+        echo "Error: Operator missing or invalid operator, please pass operator as last digit (+,-,x,/)"
+		    ;;
+        esac                   # ended the case statement
+else 
+	  echo "Error : Please pass the arguments through CL."
+    echo "Usage : ./operator_dependent.sh 2345+"
+fi           # ended the if statement
+
