@@ -1,1 +1,44 @@
+Using CLI:
+          --> CLI is called as command line arguements where we given checking condition in the script of the file 
+          and we give input during the execution of .sh file.
+          --> $ --> usually present in cli's and $#,$@--> shows total no of arguements
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+piping :- 
+         list | bd.txt
+         it opens content in list into bd.txt
+        
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+arithmetic operations like +,*,/,- etxc
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+if [ $# -ne 3 ]        # checking if command line arguments are there
+then 
+    echo -e "Error:Invalid number of arguments"         # if no cla print error
+else
+    case $2 in                               # initialising case statement
+        + )                                  # addition
+            val=` echo "scale=2; $1 + $3 " | bc `
+            echo "$1 $2 $3 = $val"
+            ;;
+        - )                                  #subtraction
+            sub=` echo "scale=2; $1 - $3 " | bc ` 
+            echo "$1 $2 $3 = $sub"
+            ;;
+        x )                                  # multiplication
+            mul=` echo "scale=2; $1 * $3 " | bc `
+            echo "$1 $2 $3 = $mul"
+            ;;
+        / )                                 # division
+            div=` echo "scale=2; $1 / $3 " | bc `
+            echo "$1 $2 $3 = $div"
+            ;;
+        * )                                 # default
+            echo " invalid"
+            ;;
+    esac
+fi        
+         
+
 
