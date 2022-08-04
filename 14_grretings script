@@ -1,0 +1,39 @@
+#!/bin/bash                        #getting time in 24 hour format
+
+hour=$(date + "%H")                   
+week=$(date + "%A")
+date=$(date + "%d")
+month=$(date + "%b")
+year=$(date + "%G")
+time=$(date + "%r")
+
+if [ $hour -gt 5 -a $hour -le 12 ]
+then
+
+    echo "Good Morning user, Have nice day!"
+    echo "This is $week in $month of $year ($time)"
+    
+elif [ $hour -gt 12 -a $hour -le 13 ]
+then 
+     
+     echo "Good noon user, Have nice day!"
+     echo "This is $week in $month of $year ($time)"
+     
+elif [ $hour -gt 13 -a $hour -le 17 ]
+then
+   
+     echo "Good afternoon user, Have nice day!"
+     echo "This is $week in $month of $year ($time)"
+     
+elif [ $hour -gt 17 -a $hour -le 21 ]
+then
+ 
+     echo "Good evening user, Have nice day!"
+     echo "This is $week in $month of $year ($time)"
+     
+else
+
+     echo "Good night user, Have nice day!"
+     echo "This is $week in $month of $year ($time)"
+     
+fi
