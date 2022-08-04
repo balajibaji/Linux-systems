@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ $# -eq 0 ]         # checking the condition whether it has any cla or not
+then 
+	   echo *          # alternative for ls
+else
+    if [ $# -ne 0 ]    #                 cla or not
+    then 
+	      for i in $@      #total cla
+	      do
+	         if [ -d "$i" ]         # it is a directory or not
+	         then
+	              cd $i          # change directory to i
+                echo -n "$PWD":       # print pwd(print working directory)
+	              echo                 # print space
+                echo " echo * "    # printing list
+           else 
+	             echo "output_ls.sh: Cannot access 'Test': No such file or directory."  # printing else part
+	         fi        # end of inner if condition
+      done       # end of for loop 
+    fi       # end of second if condition
+fi  #end of outer if condition
