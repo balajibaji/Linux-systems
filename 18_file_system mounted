@@ -1,0 +1,31 @@
+cmds used df,tr,cut
+-------------------------------------------------------------------------------------------------------
+mounting,file_systems,device files
+--------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+x=$1
+arr1=(`df -h | tr -s " " | cut -d " " -f 1`)
+arr2=(`df -h | tr -s " " | cut -d " " -f 5`)
+arr3=(`df -h | tr -s " " | cut -d " " -f 4`)
+length=${#arr1[@]}
+len=`expr $length - 1`
+mount=0
+if [ $# -eq 0 ]
+then
+	  echo Error : Please pass the name of the file-system through command line.
+else 
+	  for i in `seq 0 $len`
+	  do
+		   if [ $x = ${arr1[$i]} ]
+		   then
+			     mount=1
+			 echo "File-system /${arr1[$i]} is mounted on / and it is having ${arr2[$i]} used space with ${arr3[$i]} free."
+		else
+			  mount=$(($mount + 1))
+		fi
+	done
+fi
+if [ $m -eq $length ]
+then
+	  echo "/$x is not mounted."
+fi
