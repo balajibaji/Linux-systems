@@ -1,1 +1,20 @@
+#!/bin/bash
 
+if [ $# -eq 0 ]      # cla
+then 
+    echo "Error : Pass the arguments through command line."
+else 
+    function recursive ()         #recursive function
+    {
+        array=($@)          # assigning all the args to array
+        echo $1      # echoing arg1    
+        if [ ${#array[@]} -le 1 ]        # condition checking length is lessthan 1
+        then
+            return
+        else
+            array=(${array[@]:1})      #offset
+            recursive ${array[@]}    # recursive 
+        fi
+    }
+    recursive $@      # recursive 
+fi          # end of if condition
