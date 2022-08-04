@@ -1,0 +1,16 @@
+filter/translate cmds
+-----------------------------------------------------------------------------------------------------------
+#!/bin/bash
+if [ $# -ne 0 ]     #cla passed or not
+then
+     arr=(`ls *.jpg`)     # array
+     for i in `seq 0 $((${#arr[@]}-1))`     # for loop started
+     do 
+        var=`echo ${arr[$i]} | tr -d [:alpha:]`
+        mv ${arr[$i]} $1$var'jpg'
+     done
+     echo "All .jpg files in current directory is renamed as"
+     ls *.jpg
+else
+     echo "Error : Please pass the prefix name through command line."
+fi
