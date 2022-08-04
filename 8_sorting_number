@@ -1,0 +1,52 @@
+bubble sort [sorting mechanism]
+arrays
+------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+if [ $# -gt 1 ]
+then
+    args=`echo "${@:2}"`
+    arr=($args)
+    len=${#arr[@]}
+    
+    if [ $1 = '-a' ]
+    then
+        for num in `seq 0 $((len-1))`
+        do
+           j=0
+           while [ $j -lt $(($len-$num-1)) ]
+           do
+             if [ ${arr[$j]} -gt ${arr[$(($j+1))]} ]
+             then
+                 temp=${arr[$j]}
+                 arr[$j]=${arr[$j+1]}
+                 arr[$((j+1))]=$temp
+             fi
+             j=$((j+1))
+           done
+       done
+       echo "ascending order of array is ${arr[@]}"
+    elif [ $1 = '-d' ]
+    then
+        # bubble sort
+        for num in `seq 0 $((len-1))`
+        do
+           j=0
+           while [ $j -lt $(($len-$num-1)) ]
+           do
+              if [ ${arr[$j]} -lt ${arr[$(($j+1))]} ]
+              then
+                 temp=${arr[$j]}
+                 arr[$j]=${arr[$j+1]}
+                 arr[$((j+1))]=$temp
+             fi
+             j=$((j+1))
+           done
+       done
+       echo "descending order of array is ${arr[@]}"
+       else
+            echo -e "error"
+     fi
+   else
+       echo -e "error"
+ fi
+          
