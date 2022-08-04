@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]                   #cla          
+then    
+        echo "Error : Please pass the file name through command line."
+elif [ -f $1 ]        # condition checking for file is available or not
+then    
+        if [ -s $1 ]   # condition checking for directory is available or not
+        then    
+        read -p "Please select option :" opt
+        case $opt in        #case statement starts
+           1)   
+             low_upper=`cat $1 | tr [a-z] [A-Z]`         # lower to upper
+             echo "$low_upper"
+             ;;
+           2)
+             upper_low=`cat $1 | tr [A-Z] [a-z]`      #upper to lower
+             echo "$upper_low"
+             ;;
+        esac                 #end of case
+        else        
+            echo "Error: No contents inside the file."
+        fi            #end of inner loop condition
+fi                 #end of outer loop condition
