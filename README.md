@@ -1,2 +1,2 @@
 # Linux-systems
-Here i reposited my assignments, my codes , scripts,thoughts during the module
+Here i reposited my assignments which i did in the linux systems module.
